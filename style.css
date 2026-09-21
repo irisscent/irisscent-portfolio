@@ -1,11 +1,11 @@
 :root {
   --ink: #080808;
   --muted: #3f3f3f;
-  --paper: #f4f3ee;
+  --paper: #ffffff;
   --line: rgba(24, 32, 29, .16);
-  --lime: #d4f36a;
-  --orange: #ef6847;
-  --blue: #9cb9ff;
+  --lime: #c99568;
+  --orange: #b84d35;
+  --blue: #c4876c;
   --serif: Georgia, "Times New Roman", serif;
   --korean-sans: "Noto Sans KR", "Manrope", sans-serif;
   --korean-serif: "Noto Serif KR", Georgia, serif;
@@ -45,7 +45,8 @@ h1 em, h2 em { color: var(--orange); font-family: var(--korean-serif); font-weig
 .button-dark { color: var(--paper); background: var(--ink); }
 .button-light { color: var(--ink); background: var(--lime); }
 .text-link { font-size: 0.95rem; font-weight: 700; border-bottom: 1px solid var(--ink); padding-bottom: 5px; }
-.hero-art { position: relative; height: min(55vw, 600px); min-height: 400px; background: var(--lime); overflow: hidden; }
+.hero-art { position: relative; height: min(55vw, 600px); min-height: 400px; background: #c99568 url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85") center/cover; overflow: hidden; filter: sepia(.18) saturate(.9); }
+.hero-art > * { display: none; }
 .sun { position: absolute; width: 47%; aspect-ratio: 1; top: 22%; left: 27%; border-radius: 50%; background: var(--orange); }
 .orbit { position: absolute; top: 12%; left: 10%; width: 80%; height: 75%; border: 1px solid rgba(24, 32, 29, .5); border-radius: 50%; transform: rotate(-32deg); }
 .orbit-two { transform: rotate(38deg); }
@@ -64,17 +65,20 @@ h2 { margin: 0; color: var(--ink); font-size: clamp(3.5rem, 7vw, 6.5rem); line-h
 .project-card-wide { grid-row: span 2; }
 .project-visual { position: relative; min-height: 390px; overflow: hidden; }
 .project-card-wide .project-visual { min-height: 650px; }
-.visual-one { background: #c7d8ff; }
+.visual-one { background: #d89a70 url("https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1200&q=85") center/cover; filter: sepia(.16) saturate(.9); }
+.visual-one > * { display: none; }
 .visual-window { position: absolute; top: 14%; left: 12%; right: 12%; bottom: 0; padding: 28px; background: #fffdf8; box-shadow: 14px 14px 0 rgba(24, 32, 29, .12); transform: rotate(-3deg); }
 .window-dot { display: inline-block; width: 7px; height: 7px; margin-right: 4px; border-radius: 50%; background: var(--orange); }
 .window-dot:nth-child(2) { background: var(--lime); }.window-dot:nth-child(3) { background: var(--blue); }
 .visual-lines { width: 67%; height: 38%; margin-top: 18%; background: repeating-linear-gradient(to bottom, var(--ink) 0 4px, transparent 4px 22px); opacity: .14; }
 .visual-pill { position: absolute; right: 12%; top: 37%; padding: 8px 13px; color: var(--paper); background: var(--orange); font-size: .62rem; }
-.visual-two { padding: 10%; background: var(--orange); color: var(--lime); }
+.visual-two { padding: 10%; background: #b84d35 url("https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1000&q=85") center/cover; color: var(--lime); filter: sepia(.2) saturate(.85); }
+.visual-two > * { display: none; }
 .poster-copy { font-size: clamp(3.8rem, 7.5vw, 7.5rem); line-height: .82; letter-spacing: -.1em; }
 .poster-copy strong { color: var(--ink); font-weight: 800; }
 .poster-stamp { position: absolute; right: 10%; bottom: 10%; font: .6rem "DM Mono", monospace; border: 1px solid var(--lime); padding: 8px; }
-.visual-three { display: flex; align-items: center; justify-content: center; background: var(--blue); }
+.visual-three { display: flex; align-items: center; justify-content: center; background: #c6785b url("https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=85") center/cover; filter: sepia(.2) saturate(.85); }
+.visual-three > * { display: none; }
 .dashboard { width: 70%; padding: 10%; background: var(--paper); transform: rotate(5deg); box-shadow: 12px 12px 0 rgba(24, 32, 29, .14); }
 .dashboard-label { font: .56rem "DM Mono", monospace; }
 .dashboard strong { display: block; margin-top: 15%; font-size: 2rem; letter-spacing: -.08em; }
