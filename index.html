@@ -55,7 +55,7 @@
           <h2>만드는 일에는<br><em>이유가 있어야</em> 하니까.</h2>
         </div>
         <div class="project-grid">
-          <article class="project-card project-card-wide reveal">
+          <article class="project-card project-card-wide reveal" data-project="onda" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="project-modal">
             <div class="project-visual visual-one">
               <div class="visual-window">
                 <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
@@ -73,7 +73,7 @@
             <p class="project-tags">Product design · UX strategy · iOS</p>
           </article>
 
-          <article class="project-card reveal">
+          <article class="project-card reveal" data-project="space-oddity" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="project-modal">
             <div class="project-visual visual-two">
               <div class="poster-copy">MAKE<br><strong>SPACE</strong></div>
               <span class="poster-stamp">EST. 2023</span>
@@ -88,7 +88,7 @@
             <p class="project-tags">Branding · Art direction · Web</p>
           </article>
 
-          <article class="project-card reveal">
+          <article class="project-card reveal" data-project="slowly" role="button" tabindex="0" aria-haspopup="dialog" aria-controls="project-modal">
             <div class="project-visual visual-three">
               <div class="dashboard">
                 <span class="dashboard-label">WEEKLY MOOD</span>
@@ -152,6 +152,28 @@
       </div>
     </footer>
   </div>
+  <dialog class="project-modal" id="project-modal" aria-labelledby="modal-title">
+    <div class="project-modal-content">
+      <button class="project-modal-close" type="button" aria-label="프로젝트 상세 정보 닫기">닫기 <span aria-hidden="true">×</span></button>
+      <p class="project-modal-note">예시 데이터 · 실제 프로젝트 정보가 아닙니다.</p>
+      <h2 id="modal-title"></h2>
+      <p class="project-modal-description" id="modal-description"></p>
+      <dl class="project-modal-details">
+        <div>
+          <dt>담당 역할</dt>
+          <dd id="modal-role"></dd>
+        </div>
+        <div>
+          <dt>사용 기술</dt>
+          <dd id="modal-technologies"></dd>
+        </div>
+        <div>
+          <dt>주요 성과</dt>
+          <dd id="modal-impact"></dd>
+        </div>
+      </dl>
+    </div>
+  </dialog>
   <script src="script.js"></script>
 </body>
 </html>
