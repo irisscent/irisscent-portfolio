@@ -89,6 +89,22 @@ h2 { margin: 0; color: var(--ink); font-size: clamp(3.5rem, 7vw, 6.5rem); line-h
 h3 { margin: 0; font-size: 1.5rem; letter-spacing: -.05em; }
 .project-arrow { font-size: 1.45rem; }
 .project-tags { margin-top: 9px; }
+.project-card { cursor: pointer; }
+.project-card:focus-visible { outline: 2px solid var(--orange); outline-offset: 6px; }
+.project-modal { width: min(620px, calc(100% - 32px)); max-height: min(80vh, 760px); padding: 0; border: 1px solid var(--line); color: var(--ink); background: var(--paper); }
+.project-modal[open] { display: block; }
+.project-modal::backdrop { background: rgba(8, 8, 8, .62); backdrop-filter: blur(3px); }
+.project-modal-content { position: relative; max-height: min(80vh, 760px); padding: clamp(28px, 6vw, 52px); overflow-y: auto; }
+.project-modal-close { display: flex; align-items: center; gap: 12px; margin: 0 0 38px auto; padding: 8px 0; border: 0; border-bottom: 1px solid var(--ink); color: var(--ink); background: transparent; font: 700 .9rem var(--korean-sans); cursor: pointer; }
+.project-modal-close span { font-size: 1.4rem; line-height: 1; }
+.project-modal-note { margin-bottom: 16px; color: var(--orange); font: 500 .7rem/1.5 "DM Mono", monospace; }
+.project-modal h2 { margin-bottom: 20px; font-size: clamp(2rem, 7vw, 3.5rem); line-height: 1.15; letter-spacing: -.05em; overflow-wrap: anywhere; }
+.project-modal-description { margin-bottom: 32px; color: var(--muted); font-size: 1rem; line-height: 1.8; word-break: keep-all; }
+.project-modal-details { margin: 0; border-top: 1px solid var(--line); }
+.project-modal-details div { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.project-modal-details dt { color: var(--muted); font: 500 .68rem/1.6 "DM Mono", monospace; }
+.project-modal-details dd { margin: 0; font-size: .9rem; line-height: 1.7; word-break: keep-all; }
+.project-modal button:focus-visible { outline: 2px solid var(--orange); outline-offset: 4px; }
 .about-note { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .large-copy { max-width: 900px; font-size: clamp(2.5rem, 5.5vw, 5.5rem); line-height: 1.16; letter-spacing: -.08em; }
 .large-copy span { color: var(--orange); font-family: var(--serif); }
@@ -113,5 +129,6 @@ input:focus, textarea:focus { border-color: var(--orange); }
   .intro-strip { grid-template-columns: 1fr 2fr; }.intro-strip .strip-arrow { display: none; }
   .section-block { padding: 90px 0; }.section-heading { display: block; margin-bottom: 42px; }.section-heading .eyebrow { margin-bottom: 30px; }
   .project-grid { grid-template-columns: 1fr; gap: 58px; }.project-card-wide { grid-row: auto; }.project-visual, .project-card-wide .project-visual { min-height: 370px; }
+  .project-modal-details div { grid-template-columns: 1fr; gap: 5px; }
   .about-meta { margin-top: 45px; gap: 15px; line-height: 1.6; }.contact { gap: 65px; padding-bottom: 90px; }.site-footer { display: block; }.social-links { margin-top: 18px; gap: 16px; }
 }
