@@ -124,7 +124,7 @@
           <h2>같이 풀어볼<br><em>문제가 있나요?</em></h2>
           <a class="email-link" href="mailto:hello@kangyeonsu.design">hello@kangyeonsu.design <span>↗</span></a>
         </div>
-        <form class="contact-form reveal" id="contact-form">
+        <form class="contact-form reveal" id="contact-form" novalidate>
           <label>
             <span>이름</span>
             <input type="text" name="name" placeholder="홍길동" required>
@@ -134,11 +134,11 @@
             <input type="email" name="email" placeholder="hello@example.com" required>
           </label>
           <label>
-            <span>하고 싶은 이야기</span>
+            <span>메시지</span>
             <textarea name="message" rows="3" placeholder="프로젝트에 대해 간단히 알려주세요." required></textarea>
           </label>
-          <button class="button button-light" type="submit">메시지 보내기 <span aria-hidden="true">↗</span></button>
-          <p class="form-message" role="status"></p>
+          <button class="button button-light" type="submit">문의 내용 확인 <span aria-hidden="true">↗</span></button>
+          <p class="form-message" role="alert"></p>
         </form>
       </section>
     </main>

@@ -90,8 +90,45 @@ projectModal.addEventListener("close", () => {
 
 contactForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  const formData = new FormData(contactForm);
-  const name = formData.get("name");
-  formMessage.textContent = `${name}님, 메시지를 확인했어요. 곧 답장드릴게요!`;
-  contactForm.reset();
+  const fields = [
+    { element: contactForm.elements.namedItem("name"), label: "이름" },
+    { element: contactForm.elements.namedItem("email"), label: "이메일" },
+    { element: contactForm.elements.namedItem("message"), label: "메시지" }
+  ];
+  const errors = [];
+  let firstInvalidField = null;
+
+  fields.forEach(({ element, label }) => {
+    const value = element.value.trim();
+    let error = "";
+
+    if (!value) {
+      error = `${label} 항목을 입력해 주세요.`;
+    } else if (element.name === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      error = "올바른 이메일 주소를 입력해 주세요.";
+    }
+
+    if (error) {
+      element.setAttribute("aria-invalid", "true");
+      errors.push(error);
+      if (!firstInvalidField) firstInvalidField = element;
+    } else {
+      element.removeAttribute("aria-invalid");
+    }
+  });
+
+  if (errors.length) {
+    formMessage.textContent = `${errors.join(" ")} 입력 내용을 확인해 주세요.`;
+    firstInvalidField.focus();
+    return;
+  }
+
+  formMessage.textContent = "입력 내용이 모두 유효합니다. 실제 이메일은 전송되지 않았습니다.";
+});
+
+contactForm.addEventListener("input", (event) => {
+  const field = event.target;
+  if (!(field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement)) return;
+  field.removeAttribute("aria-invalid");
+  formMessage.textContent = "";
 });
