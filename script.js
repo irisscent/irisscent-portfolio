@@ -10,6 +10,9 @@ const modalTechnologies = document.querySelector("#modal-technologies");
 const modalImpact = document.querySelector("#modal-impact");
 const modalCloseButton = document.querySelector(".project-modal-close");
 const projectCards = document.querySelectorAll(".project-card");
+const themeToggle = document.querySelector("#theme-toggle");
+const themeToggleIcon = themeToggle.querySelector(".theme-toggle-icon");
+const themeToggleLabel = themeToggle.querySelector(".theme-toggle-label");
 
 const projectDetails = {
   onda: {
@@ -36,6 +39,22 @@ const projectDetails = {
 };
 
 let lastFocusedCard = null;
+
+function setTheme(theme) {
+  const isDark = theme === "dark";
+  document.documentElement.dataset.theme = isDark ? "dark" : "light";
+  themeToggle.setAttribute("aria-pressed", String(isDark));
+  themeToggle.setAttribute("aria-label", isDark ? "라이트 모드로 전환" : "다크 모드로 전환");
+  themeToggleIcon.textContent = isDark ? "☀" : "☾";
+  themeToggleLabel.textContent = isDark ? "라이트 모드" : "다크 모드";
+}
+
+setTheme(document.documentElement.dataset.theme);
+themeToggle.addEventListener("click", () => {
+  const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  localStorage.setItem("portfolio-theme", nextTheme);
+  setTheme(nextTheme);
+});
 
 const revealObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {

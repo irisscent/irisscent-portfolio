@@ -2,7 +2,10 @@
   --ink: #080808;
   --muted: #3f3f3f;
   --paper: #ffffff;
+  --surface: #fffdf8;
   --line: rgba(24, 32, 29, .16);
+  --orbit: rgba(24, 32, 29, .5);
+  --shadow: rgba(24, 32, 29, .12);
   --lime: #c99568;
   --orange: #b84d35;
   --blue: #c4876c;
@@ -11,6 +14,20 @@
   --korean-serif: "Noto Serif KR", Georgia, serif;
   --cursive: "Caveat", cursive;
   --gradient: linear-gradient(135deg, #ef6847 0%, #9cb9ff 50%, #d4f36a 100%);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #f4f1ed;
+  --muted: #b7b2ac;
+  --paper: #171918;
+  --surface: #242725;
+  --line: rgba(244, 241, 237, .18);
+  --orbit: rgba(244, 241, 237, .42);
+  --shadow: rgba(0, 0, 0, .32);
+  --lime: #d7a47f;
+  --orange: #e58b71;
+  --blue: #d69a7c;
 }
 
 * { box-sizing: border-box; }
@@ -29,6 +46,10 @@ a { color: inherit; text-decoration: none; }
 .logo span, em { color: var(--orange); font-style: normal; }
 .main-nav { display: flex; gap: 34px; color: var(--muted); font-size: 1rem; }
 .main-nav a:hover, .social-links a:hover { color: var(--orange); }
+.theme-toggle { display: inline-flex; align-items: center; gap: 8px; padding: 9px 12px; border: 1px solid var(--line); color: var(--ink); background: transparent; font: 600 .75rem var(--korean-sans); cursor: pointer; }
+.theme-toggle:hover { background: var(--surface); }
+.theme-toggle:focus-visible { outline: 2px solid var(--orange); outline-offset: 4px; }
+.theme-toggle-icon { font-size: 1rem; line-height: 1; }
 .header-cta { font-size: 0.95rem; font-weight: 700; border-bottom: 1px solid var(--ink); padding-bottom: 5px; }
 .header-cta span, .text-link span { margin-left: 7px; }
 .section-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 5vw; min-height: 670px; align-items: center; }
@@ -46,9 +67,10 @@ h1 em, h2 em { color: var(--orange); font-family: var(--korean-serif); font-weig
 .button-light { color: var(--ink); background: var(--lime); }
 .text-link { font-size: 0.95rem; font-weight: 700; border-bottom: 1px solid var(--ink); padding-bottom: 5px; }
 .hero-art { position: relative; height: min(55vw, 600px); min-height: 400px; background: #c99568 url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85") center/cover; overflow: hidden; filter: sepia(.18) saturate(.9); }
+:root[data-theme="dark"] .hero-art { filter: brightness(.68) sepia(.1) saturate(.8); }
 .hero-art > * { display: none; }
 .sun { position: absolute; width: 47%; aspect-ratio: 1; top: 22%; left: 27%; border-radius: 50%; background: var(--orange); }
-.orbit { position: absolute; top: 12%; left: 10%; width: 80%; height: 75%; border: 1px solid rgba(24, 32, 29, .5); border-radius: 50%; transform: rotate(-32deg); }
+.orbit { position: absolute; top: 12%; left: 10%; width: 80%; height: 75%; border: 1px solid var(--orbit); border-radius: 50%; transform: rotate(-32deg); }
 .orbit-two { transform: rotate(38deg); }
 .art-label { position: absolute; font: 500 .64rem/1.5 "DM Mono", monospace; letter-spacing: .09em; }
 .label-top { top: 9%; left: 8%; }
@@ -67,7 +89,7 @@ h2 { margin: 0; color: var(--ink); font-size: clamp(3.5rem, 7vw, 6.5rem); line-h
 .project-card-wide .project-visual { min-height: 650px; }
 .visual-one { background: #d89a70 url("https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1200&q=85") center/cover; filter: sepia(.16) saturate(.9); }
 .visual-one > * { display: none; }
-.visual-window { position: absolute; top: 14%; left: 12%; right: 12%; bottom: 0; padding: 28px; background: #fffdf8; box-shadow: 14px 14px 0 rgba(24, 32, 29, .12); transform: rotate(-3deg); }
+.visual-window { position: absolute; top: 14%; left: 12%; right: 12%; bottom: 0; padding: 28px; background: var(--surface); box-shadow: 14px 14px 0 var(--shadow); transform: rotate(-3deg); }
 .window-dot { display: inline-block; width: 7px; height: 7px; margin-right: 4px; border-radius: 50%; background: var(--orange); }
 .window-dot:nth-child(2) { background: var(--lime); }.window-dot:nth-child(3) { background: var(--blue); }
 .visual-lines { width: 67%; height: 38%; margin-top: 18%; background: repeating-linear-gradient(to bottom, var(--ink) 0 4px, transparent 4px 22px); opacity: .14; }
@@ -78,8 +100,11 @@ h2 { margin: 0; color: var(--ink); font-size: clamp(3.5rem, 7vw, 6.5rem); line-h
 .poster-copy strong { color: var(--ink); font-weight: 800; }
 .poster-stamp { position: absolute; right: 10%; bottom: 10%; font: .6rem "DM Mono", monospace; border: 1px solid var(--lime); padding: 8px; }
 .visual-three { display: flex; align-items: center; justify-content: center; background: #c6785b url("https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=85") center/cover; filter: sepia(.2) saturate(.85); }
+:root[data-theme="dark"] .visual-one,
+:root[data-theme="dark"] .visual-two,
+:root[data-theme="dark"] .visual-three { filter: brightness(.65) sepia(.1) saturate(.8); }
 .visual-three > * { display: none; }
-.dashboard { width: 70%; padding: 10%; background: var(--paper); transform: rotate(5deg); box-shadow: 12px 12px 0 rgba(24, 32, 29, .14); }
+.dashboard { width: 70%; padding: 10%; background: var(--surface); transform: rotate(5deg); box-shadow: 12px 12px 0 var(--shadow); }
 .dashboard-label { font: .56rem "DM Mono", monospace; }
 .dashboard strong { display: block; margin-top: 15%; font-size: 2rem; letter-spacing: -.08em; }
 .chart { display: flex; align-items: end; height: 80px; gap: 7px; margin-top: 15%; }
@@ -117,6 +142,7 @@ h3 { margin: 0; font-size: 1.5rem; letter-spacing: -.05em; }
 .contact-form label { display: flex; flex-direction: column; gap: 9px; }
 .contact-form label span { color: var(--muted); font: .62rem "DM Mono", monospace; text-transform: uppercase; }
 input, textarea { width: 100%; padding: 0 0 12px; border: 0; border-bottom: 1px solid var(--line); outline: 0; color: var(--ink); background: transparent; font: 1rem "Manrope", "Noto Sans KR", sans-serif; resize: vertical; }
+input::placeholder, textarea::placeholder { color: var(--muted); opacity: .7; }
 input:focus, textarea:focus { border-color: var(--orange); }
 .form-message { min-height: 18px; margin: -16px 0 0; color: var(--orange); font-size: .75rem; }
 .site-footer { display: flex; justify-content: space-between; padding: 25px 0 35px; border-top: 1px solid var(--line); color: var(--muted); font: .62rem "DM Mono", monospace; text-transform: uppercase; }
